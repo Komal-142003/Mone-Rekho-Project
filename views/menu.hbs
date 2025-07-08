@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mone Rekho - Authentic Indian Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/menu.css">
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <div class="logo-text">Mone <span>Rekho</span></div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                {{#if user}}
+                    <li><a href="/logout">log out</a></li>
+                {{else}}
+                <li><a href="/login">Log in</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+
+    <section class="menu-categories">
+        <div class="menu-container">
+            <div class="section-title">
+                <h2>Our Special Menu</h2>
+                <p>Discover the rich flavors of India with our signature dishes</p>
+            </div>
+            
+            <div class="category-tabs">
+                {{#each categories}}
+                <button class="category-tab {{#if (eq name 'all')}}active{{/if}}" 
+                        data-category="{{name}}">
+                    {{display}}
+                </button>
+                {{/each}}
+            </div>
+
+            <div class="menu-grid">
+                {{#each menuItems}}
+                <div class="menu-card" data-item="{{food_id}}" data-category="{{type}}">
+                    {{#if (getBadgeType rating)}}
+                    <div class="card-badge">{{getBadgeType rating}}</div>
+                    {{/if}}
+                    
+                    <div class="card-image">
+                        <img src="{{image}}" alt="{{food_name}}" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="card-title">{{food_name}}</h3>
+                            <span class="card-price">{{formatPrice price}}</span>
+                        </div>
+                        <p class="card-description">{{food_description}}</p>
+                        <div class="card-footer">
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>{{rating}}</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="{{food_id}}">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-cart" id="floatingCart">
+        <i class="fas fa-shopping-cart">
+            <span class="cart-count">0</span>
+        </i>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-total">
+            <div class="total-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">₹0</span>
+            </div>
+            <div class="total-row">
+                <span>Tax (5%):</span>
+                <span id="tax">₹0</span>
+            </div>
+            <div class="total-row total">
+                <span>Total:</span>
+                <span id="total">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+     <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Mone Rekho</h3>
+                <p>Bringing authentic Kolkata flavors to your plate since 2010. Our mission is to serve delicious, high-quality food that creates lasting memories.</p>
+                <div class="social-links">
+                    <a href="#" style="text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="text-decoration: none;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="text-decoration: none;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/menu">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>21 Baisakhi Market, Sector-II, Kolkata 700091</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 9874991452</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>monerekho@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Open Daily: 11:00 AM - 11:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/menu.js"></script>
+</body>
+</html>

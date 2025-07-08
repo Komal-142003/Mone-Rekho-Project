@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mone Rekho - Authentic Indian Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">   
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <div class="logo-text">Mone <span>Rekho</span></div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                {{#if user}}
+                    <li><a href="/logout">log out</a></li>
+                {{else}}
+                <li><a href="/login">Log in</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Authentic Indian Fast Food</h1>
+            <p>Experience the rich flavors of Kolkata with our signature biryanis, fried rice, and kebabs. Mone Rekho brings you the taste of tradition with a modern twist.</p>
+            <div class="btn-group">
+                <a href="/reserve%20table" class="btn">Reserve Table</a>
+                <a href="#menu" class="btn btn-outline">Our Specialties</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="special-dishes" id="menu">
+        <div class="section-title">
+            <h2>Our Specialties</h2>
+        </div>
+        <div class="dishes-container">
+            <div class="dish-card">
+                <div class="dish-img">
+                    <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1488&q=80" loading="lazy" alt="Mutton Biryani">
+                </div>
+                <div class="dish-info">
+                    <h3>Mutton Biryani</h3>
+                    <p>Slow-cooked mutton with fragrant rice, potato and egg.</p>
+                    <div class="price">
+                        <span>₹270</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-img">
+                    <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" loading="lazy" alt="Chicken Fried Rice">
+                </div>
+                <div class="dish-info">
+                    <h3>Chicken Fried Rice</h3>
+                    <p>Basmati rice stir-fried with chicken and vegetables.</p>
+                    <div class="price">
+                        <span>₹160</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-img">
+                    <img src="https://www.bing.com/th?id=OIP.ePWrWAU-bxmHE2xtYLDNFwHaEJ" loading="lazy" alt="Kolkata Fish Fry">
+                </div>
+                <div class="dish-info">
+                    <h3>Kolkata Fish Fry</h3>
+                    <p>Crispy fried bhetki fish coated in breadcrumbs, served with kasundi.</p>
+                    <div class="price">
+                        <span>₹180</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" loading="lazy" alt="Mone Rekho Restaurant">
+        </div>
+        <div class="about-content">
+            <h2>Our Story</h2>
+            <p>Founded in 2010, Mone Rekho has been serving authentic Kolkata-style fast food with love and passion. Our recipes have been passed down through generations, preserving the traditional flavors while adapting to modern tastes.</p>
+            <p>We source only the freshest ingredients and prepare each dish with meticulous attention to detail. Our biryanis are cooked in the traditional dum style, ensuring every grain of rice is infused with flavor.</p>
+            <p>At Mone Rekho, we believe food is not just about taste, but about creating memories that last a lifetime.</p>
+            {{!-- <a href="#" class="btn">Learn More</a> --}}
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>What Our Customers Say</h2>
+        </div>
+        <div class="testimonial-container">
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">The Mutton Biryani at Mone Rekho is the best I've had outside of Kolkata! The flavors are authentic and the meat is always tender. Highly recommended!</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Rahul Sharma</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">I order from Mone Rekho at least twice a week. Their Chicken Fried Rice is consistently delicious and arrives piping hot every time.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Priya Patel</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">The kebabs here remind me of the ones I had in Lucknow. Perfectly spiced and grilled just right. The service is excellent too!</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Amit Kumar</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav" id="sliderNav">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Mone Rekho</h3>
+                <p>Bringing authentic Kolkata flavors to your plate since 2010. Our mission is to serve delicious, high-quality food that creates lasting memories.</p>
+                <div class="social-links">
+                    <a href="#" style="text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="text-decoration: none;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="text-decoration: none;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/menu">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>21 Baisakhi Market, Sector-II, Kolkata 700091</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 9874991452</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>monerekho@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Open Daily: 11:00 AM - 11:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/index.js"></script>
+</body>
+</html>
